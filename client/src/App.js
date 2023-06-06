@@ -16,9 +16,16 @@ function App()
 
   return (
     <div className="App">
-      {listOfPosts.map((post, key) =>
+      {listOfPosts.map((value, key) =>
         {
-        return <h2>{key} {post.title}</h2>
+        return (
+          <div className='post'>
+            <div className='title'>{value.title}</div>
+            <div className='body'>{value.postText}</div>
+            <div className='footer'>{value.username}</div>
+          </div>
+          
+        );
         })
       }
     </div>
