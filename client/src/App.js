@@ -10,9 +10,9 @@ function App()
     <div className="App">
       <Router>
         <Link to="/createpost"> Create a post</Link>
-        <Link to="/"> Go to home</Link>
+        <Link to="/">Home page</Link>
         <Routes>
-          <Route path='/' element={<Home />} /> //in react router v6 don't use Switch like the tuto
+          <Route path='/' element={<Home />} />
           <Route path='/createpost' element={<CreatePost />} />
         </Routes>
       </Router>
