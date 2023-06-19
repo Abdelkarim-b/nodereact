@@ -17,21 +17,17 @@ function CreatePost() {
   username: Yup.string().min(3).max(15).required(),
 });
 
-//  const onSubmit = (data)=>{
-//    console.log("submited data : ", data)
-//  }
+const onSubmit = (data) => {
+  axios.post("http://localhost:3001/posts", data).then((response) => {
+    console.log("IT WORKED");
+  });
+};
 
  return (
       <div className='createPostPage'> 
       <Formik 
         initialValues={initialValues} 
-        onSubmit={(data)=> {
-          console.log("--- data ---", data)
-          axios.post("http://localhost:3001/posts", data)
-          .then((response)=>{
-             console.log("IT Work !");
-          })
-        }} 
+        onSubmit={onSubmit}
         validationSchema={validationSchema}>
         <Form className="formContainer">
           <label> Title : </label>
