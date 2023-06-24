@@ -25,6 +25,7 @@ function Home()
           {
               return (
                   <div 
+                    key={key}
                     className='post' 
                     onClick={()=> {
                        navigate(`/post/${value.id}`)  
