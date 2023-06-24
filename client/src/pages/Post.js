@@ -20,7 +20,7 @@ function Post() {
     .then((response)=>{
       console.log("comment added ", response.data);
       setCommentsList([...commentsList, response.data]);
-      setNewComment("");
+      setNewComment(""); //to empty value of input
     })
   };
   
