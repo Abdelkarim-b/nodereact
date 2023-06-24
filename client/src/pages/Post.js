@@ -15,7 +15,13 @@ function Post() {
   };
   
   const addComment = ()=>{
-    axios.post("http://localhost:3001/comments", {commentBody: newComment, PostId:id})
+    axios
+    .post("http://localhost:3001/comments", {commentBody: newComment, PostId:id})
+    .then((response)=>{
+      console.log("comment added ", response.data);
+      setCommentsList([...commentsList, response.data]);
+      setNewComment("");
+    })
   };
   
   useEffect(() =>
@@ -46,7 +52,8 @@ function Post() {
           <div className='addCommentContainer'>
             <input 
               type='text' 
-              placeholder='comment ...' 
+              placeholder='comment ...'
+              value={newComment} 
               autoComplete='off' 
               onChange={handleNewComment}
               />
