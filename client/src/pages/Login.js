@@ -1,0 +1,34 @@
+import axios from 'axios';
+import React, { useState } from 'react'
+
+export default function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const login = ()=>{
+      const data = {username, password};
+      axios.post("http://127.0.0.1:3001/auth/login", data)
+        .then((response)=>{
+           console.log('-- Login --', response);
+        })
+  };
+
+  return (
+    <div>
+      <input 
+        type='text'
+        onChange={
+           (event)=> setUsername(event.target.value)
+           }
+      />
+      <input 
+        type='password'
+        onChange={
+          (event)=> setPassword(event.target.value)
+        }
+      />
+
+      <button onClick={login}>Login</button>
+    </div>
+  )
+}
