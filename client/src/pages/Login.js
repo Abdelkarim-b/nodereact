@@ -7,28 +7,30 @@ export default function Login() {
 
   const login = ()=>{
       const data = {username, password};
-      axios.post("http://127.0.0.1:3001/auth/login", data)
+      axios.post("http://localhost:3001/auth/login", data)
         .then((response)=>{
-           console.log('-- Login --', response);
+           console.log('-- Login --', response.data);
         })
   };
 
   return (
-    <div>
-      <input 
-        type='text'
-        onChange={
-           (event)=> setUsername(event.target.value)
-           }
+    <div className="loginContainer">
+      <label>Username:</label>
+      <input
+        type="text"
+        onChange={(event) => {
+          setUsername(event.target.value);
+        }}
       />
-      <input 
-        type='password'
-        onChange={
-          (event)=> setPassword(event.target.value)
-        }
+      <label>Password:</label>
+      <input
+        type="password"
+        onChange={(event) => {
+          setPassword(event.target.value);
+        }}
       />
 
-      <button onClick={login}>Login</button>
+      <button onClick={login}> Login </button>
     </div>
-  )
+  );
 }

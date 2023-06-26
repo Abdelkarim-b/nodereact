@@ -23,7 +23,7 @@ export default function Registration() {
     }
 
   return (
-    <div>
+    <div className='registerPage'>
 
         <Formik 
            initialValues={initialValues} 
